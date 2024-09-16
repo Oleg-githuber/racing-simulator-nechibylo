@@ -161,13 +161,14 @@ void addTransport(RacingType& rType, TransportType& tType, TransportList* tList,
 				continue;
 			}
 			tList[number - 1].isUsing = true;
-			if (count > 1)
+			if (count > 0)
 			{
 				str = str + ",";
 			}
 			str = str + " " + tList[number - 1].name;
 			++count;
-			break;
+			//break;
+			continue;
 		}
 		std::cout << "\nВы ввели некорректный символ\n" << std::endl;
 		std::cin.clear();
@@ -206,7 +207,6 @@ void sortRacers(TransportList* tList, int sizeArray)
 	while (!isDone)
 	{
 		isDone = true;
-		int i1, i2;
 		for (int i{}; i < sizeArray - 1; ++i) {
 
 			if (tList[i].racingTime > tList[i + 1].racingTime)
