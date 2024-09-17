@@ -13,12 +13,30 @@ project ("CMakeRacing")
 
 set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 
-#add_subdirectory("Transports")
+set(TRANSPORTFILES "transports/Transport.h" "transports/Transport.cpp")
+set(LANDINGFILES "transports/landingTransports/LandingTransport.h" "transports/landingTransports/LandingTransport.cpp")
+set(CAMELFILES "transports/landingTransports/camel/Camel.h" "transports/landingTransports/camel/Camel.cpp")
+set(CENTAURFILES "transports/landingTransports/centaur/Centaur.h" "transports/landingTransports/centaur/Centaur.cpp")
+set(SHUESFILES "transports/landingTransports/crossoverShoes/CrossoverShoes.h" "transports/landingTransports/crossoverShoes/CrossoverShoes.cpp")
+set(FASTCAMELFILES "transports/landingTransports/fastCamel/FastCamel.h" "transports/landingTransports/fastCamel/FastCamel.cpp")
+set(LFLYINGFILES "transports/flyingTransports/FlyingTransport.h" "transports/flyingTransports/FlyingTransport.cpp")
+set(BROOMFILES "transports/flyingTransports/broomstick/Broomstick.h" "transports/flyingTransports/broomstick/Broomstick.cpp")
+set(EAGLEFILES "transports/flyingTransports/eagle/Eagle.h" "transports/flyingTransports/eagle/Eagle.cpp")
+set(CARPETFILES "transports/flyingTransports/magicCarpet/MagicCarpet.h" "transports/flyingTransports/magicCarpet/MagicCarpet.cpp")
+set(MAINFILE "transports/TransportCollection.h")
 
-add_library(Transports SHARED SHARED "transports/Transport.h" "transports/Transport.cpp" "transports/landingTransports/LandingTransport.h" "transports/landingTransports/LandingTransport.cpp" "transports/landingTransports/camel/Camel.h" "transports/landingTransports/camel/Camel.cpp" "transports/landingTransports/centaur/Centaur.h" "transports/landingTransports/centaur/Centaur.cpp" "transports/landingTransports/crossoverShoes/CrossoverShoes.h" "transports/landingTransports/crossoverShoes/CrossoverShoes.cpp" "transports/landingTransports/fastCamel/FastCamel.h" "transports/landingTransports/fastCamel/FastCamel.cpp" "transports/flyingTransports/FlyingTransport.h" "transports/flyingTransports/FlyingTransport.cpp" "transports/flyingTransports/broomstick/Broomstick.h" "transports/flyingTransports/broomstick/Broomstick.cpp" "transports/flyingTransports/eagle/Eagle.h" "transports/flyingTransports/eagle/Eagle.cpp" "transports/flyingTransports/magicCarpet/MagicCarpet.h" "transports/flyingTransports/magicCarpet/MagicCarpet.cpp" "transports/TransportCollection.h")
+
+add_library(Transports SHARED ${TRANSPORTFILES} ${LANDINGFILES} ${CAMELFILES} ${CENTAURFILES} ${SHUESFILES} ${FASTCAMELFILES} ${LFLYINGFILES} ${BROOMFILES} ${EAGLEFILES} ${CARPETFILES} ${MAINFILE})
 
 # Добавьте источник в исполняемый файл этого проекта.
-add_executable (CMakeRacing "CMakeRacing.h" "CMakeRacing.cpp" "RacingType.h" "TransportList.h" "Functions.h" "Functions.cpp")
+
+set(HEADERS "CMakeRacing.h""RacingType.h" "TransportList.h" "Functions.h")
+
+set(SOURCES "CMakeRacing.cpp" "Functions.cpp")
+
+set(PROJECTNAME CMakeRacing)
+
+add_executable (${PROJECTNAME} ${HEADERS} ${SOURCES})
 
 target_link_libraries(CMakeRacing Transports)
 

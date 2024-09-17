@@ -167,7 +167,7 @@ void addTransport(RacingType& rType, TransportType& tType, TransportList* tList,
 			}
 			str = str + " " + tList[number - 1].name;
 			++count;
-			//break;
+			std::cout << "\nТранспортное средство \"" << tList[number - 1].name << "\" зарегистрировано!\n";
 			continue;
 		}
 		std::cout << "\nВы ввели некорректный символ\n" << std::endl;
@@ -229,7 +229,7 @@ void swapRacers(TransportList* tList, int index)
 // ┬√тюф т ъюэёюы№ тёхї ╥╤
 void printAllTransport()
 {
-	std::cout << "\n1. Ботинки-вездеходы\n2. Метла\n3 .Верлюд\n4. Кентавр\n5. Орёл\n6. Верблюд-быстроход\n7. Ковёр-самолёт\n0. Закончить регистрацию\n"
+	std::cout << "\n1. Сапоги-вездеходы\n2. Метла\n3 .Верлюд\n4. Кентавр\n5. Орёл\n6. Верблюд-быстроход\n7. Ковёр-самолёт\n0. Закончить регистрацию\n"
 		<< "Выберите транспорт или 0 для окончания процесса регистрации: ";
 }
 
